@@ -1,0 +1,11 @@
+[Desktop Entry]
+X-SuSE-translate=true
+Type=Application
+Name=QTerminal
+GenericName=Qt terminal programm
+Comment=Qt4 based terminal
+Comment[ru_RU]=Эмулятор терминала на базе Qt4
+Icon=qterminal
+Exec=qterminal
+Terminal=false
+Categories=Qt;System;TerminalEmulator;
