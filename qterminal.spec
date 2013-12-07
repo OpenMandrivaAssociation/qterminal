@@ -2,7 +2,7 @@
 
 Name:		qterminal
 Version: 	0.4.0
-Release: 	2
+Release: 	3
 License:	GPLv2
 Source0:	%{name}-%{name}-master.tar.gz
 Source1:	%{name}.desktop
