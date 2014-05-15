@@ -3,7 +3,7 @@
 Summary:	QT-based multitab terminal emulator
 Name:		qterminal
 Version:	0.4.0
-Release:	5
+Release:	6
 License:	GPLv2
 Group:		Terminals
 Url:		https://gitorious.org/qtermwidget
