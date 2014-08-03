@@ -1,34 +1,44 @@
-%define	_subversion 1309992712
+%define	git 20140803
 
 Summary:	QT-based multitab terminal emulator
 Name:		qterminal
-Version:	0.4.0
-Release:	8
+Version:	0.4.1
+%if %git
+Release:	0.%git.1
+Source0:	%{name}-%{git}.tar.xz
+%else
+Release:	1
+Source0:	%{name}-%{name}-master.tar.gz
+%endif
+Patch0:		qterminal-qt5-translations.patch
 License:	GPLv2
 Group:		Terminals
-Url:		https://gitorious.org/qtermwidget
-Source0:	%{name}-%{name}-master.tar.gz
+Url:		https://gitorious.org/qterminal
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Source3:	%{name}_it.ts
-Patch0:		%{name}-0.4.0-italian-translations.patch
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
-BuildRequires:	qt4-devel
-BuildRequires:	qt4-linguist
-BuildRequires:	qtermwidget-devel >= 0.4.0-1
+BuildRequires:	qt5-devel
+BuildRequires:	qt5-linguist
+BuildRequires:	cmake(qtermwidget5)
+BuildRequires:	cmake(Qt5LinguistTools)
 
 %description
-QT-based multitab terminal emulator. 
-Based on QTermWidget by e_k@users.sourceforge.net 
+Qt based multitab terminal emulator. 
 
 %prep
+%if %git
+%setup -qn %{name}
+%else
 %setup -qn %{name}-%{name}
-%patch0 -p1 -b .itts
-cp %{S:3} src/translations/
+%endif
+%apply_patches
 
 %build
-%cmake
+%cmake \
+	-DUSE_QT5:BOOL=ON \
+	-DUSE_SYSTEM_QXT:BOOL=OFF
+# FIXME stop turning system Qxt off once it works with Qt5
 
 %install
 %makeinstall_std -C build
@@ -45,5 +55,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}_drop.desktop
 %{_datadir}/applications/%{name}_drop.desktop
 %{_datadir}/pixmaps/%{name}.png
 %lang(cs) %{_datadir}/%{name}/translations/%{name}_cs.qm
+%lang(es) %{_datadir}/%{name}/translations/%{name}_es.qm
+%lang(et) %{_datadir}/%{name}/translations/%{name}_et.qm
 %lang(it) %{_datadir}/%{name}/translations/%{name}_it.qm
-
+%lang(ru) %{_datadir}/%{name}/translations/%{name}_ru.qm
