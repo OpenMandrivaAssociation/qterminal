@@ -1,4 +1,4 @@
-%define	git 20140803
+%define	git 20141017
 
 Summary:	QT-based multitab terminal emulator
 Name:		qterminal
@@ -10,7 +10,6 @@ Source0:	%{name}-%{git}.tar.xz
 Release:	1
 Source0:	%{name}-%{name}-master.tar.gz
 %endif
-Patch0:		qterminal-qt5-translations.patch
 License:	GPLv2
 Group:		Terminals
 Url:		https://gitorious.org/qterminal
@@ -55,6 +54,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}_drop.desktop
 %{_datadir}/applications/%{name}_drop.desktop
 %{_datadir}/pixmaps/%{name}.png
 %lang(cs) %{_datadir}/%{name}/translations/%{name}_cs.qm
+%lang(de) %{_datadir}/%{name}/translations/%{name}_de.qm
 %lang(es) %{_datadir}/%{name}/translations/%{name}_es.qm
 %lang(et) %{_datadir}/%{name}/translations/%{name}_et.qm
 %lang(it) %{_datadir}/%{name}/translations/%{name}_it.qm
