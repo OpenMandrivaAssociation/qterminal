@@ -7,7 +7,7 @@ Version:	0.4.1
 Release:	0.%git.1
 Source0:	%{name}-%{git}.tar.xz
 %else
-Release:	5
+Release:	6
 Source0:	%{name}-%{name}-master.tar.gz
 %endif
 License:	GPLv2
