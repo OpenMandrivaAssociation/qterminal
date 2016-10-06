@@ -15,6 +15,7 @@ Group:		Terminals
 Url:		https://github.com/lxde/qterminal
 BuildRequires:	cmake
 BuildRequires:	ninja
+BuildRequires:	qmake5
 BuildRequires:	qt5-linguist
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
