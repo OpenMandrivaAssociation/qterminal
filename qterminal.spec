@@ -2,7 +2,7 @@
 
 Summary:	QT-based multitab terminal emulator
 Name:		qterminal
-Version:	0.6.0
+Version:	0.7.0
 %if %git
 Release:	0.%git.1
 Source0:	%{name}-%{git}.tar.xz
@@ -13,17 +13,17 @@ Source0:	https://github.com/lxde/qterminal/releases/download/%{version}/qtermina
 License:	GPLv2
 Group:		Terminals
 Url:		https://github.com/lxde/qterminal
-Source1:	%{name}.desktop
-Source2:	%{name}.png
 BuildRequires:	cmake
-BuildRequires:	desktop-file-utils
-BuildRequires:	qt5-devel
+BuildRequires:	ninja
 BuildRequires:	qt5-linguist
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	cmake(qtermwidget5)
 BuildRequires:	cmake(Qt5LinguistTools)
 
 %description
-Qt based multitab terminal emulator. 
+Qt based multitab terminal emulator.
 
 %prep
 %if %git
@@ -34,21 +34,15 @@ Qt based multitab terminal emulator.
 %apply_patches
 
 %build
-%cmake \
-	-DUSE_QT5:BOOL=ON \
-	-DUSE_SYSTEM_QXT:BOOL=OFF
-# FIXME stop turning system Qxt off once it works with Qt5
+%cmake_qt5 -G Ninja
+
+%ninja -C build
 
 %install
-%makeinstall_std -C build
-install -D -m 644 %{SOURCE1} %{buildroot}%{_datadir}/applications/%{name}.desktop
-install -D -m 644 %{SOURCE2} %{buildroot}%{_datadir}/pixmaps/%{name}.png
-
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}_drop.desktop
+%ninja_install -C build
 
 %files
-%doc AUTHORS COPYING NEWS README
+%doc AUTHORS NEWS README
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}_drop.desktop
