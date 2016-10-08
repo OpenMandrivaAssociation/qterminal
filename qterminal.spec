@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	cmake(qtermwidget5)
 BuildRequires:	cmake(Qt5LinguistTools)
 BuildRequires:	cmake(lxqt)
+BuildRequires:	git-core
 
 %description
 Qt based multitab terminal emulator.
