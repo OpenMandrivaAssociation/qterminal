@@ -16,12 +16,12 @@ Url:		https://github.com/lxde/qterminal
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	qmake5
-BuildRequires:	qt5-linguist
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	cmake(qtermwidget5)
 BuildRequires:	cmake(Qt5LinguistTools)
+BuildRequires:	cmake(lxqt)
 
 %description
 Qt based multitab terminal emulator.
