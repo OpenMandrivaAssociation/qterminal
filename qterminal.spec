@@ -35,9 +35,9 @@ Qt based multitab terminal emulator.
 %endif
 %apply_patches
 
-%build
 %cmake_qt5 -G Ninja
 
+%build
 %ninja -C build
 
 %install
