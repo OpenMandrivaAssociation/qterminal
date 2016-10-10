@@ -35,7 +35,7 @@ Qt based multitab terminal emulator.
 %endif
 %apply_patches
 
-%cmake_qt5 -G Ninja
+%cmake_qt5 -DPULL_TRANSLATIONS:BOOL=OFF -G Ninja
 
 %build
 %ninja -C build
@@ -44,14 +44,8 @@ Qt based multitab terminal emulator.
 %ninja_install -C build
 
 %files
-%doc AUTHORS NEWS README
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}_drop.desktop
-%{_datadir}/pixmaps/%{name}.png
-%lang(cs) %{_datadir}/%{name}/translations/%{name}_cs.qm
-%lang(de) %{_datadir}/%{name}/translations/%{name}_de.qm
-%lang(es) %{_datadir}/%{name}/translations/%{name}_es.qm
-%lang(et) %{_datadir}/%{name}/translations/%{name}_et.qm
-%lang(it) %{_datadir}/%{name}/translations/%{name}_it.qm
-%lang(ru) %{_datadir}/%{name}/translations/%{name}_ru.qm
+%{_datadir}/appdata/qterminal.appdata.xml
+%{_datadir}/icons/*/*/*/qterminal.*
