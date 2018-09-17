@@ -2,12 +2,12 @@
 
 Summary:	QT-based multitab terminal emulator
 Name:		qterminal
-Version:	0.8.0
+Version:	0.9.0
 %if %git
 Release:	0.%git.1
 Source0:	%{name}-%{git}.tar.xz
 %else
-Release:	2
+Release:	1
 Source0:	https://github.com/lxde/qterminal/releases/download/%{version}/qterminal-%{version}.tar.xz
 %endif
 License:	GPLv2
@@ -23,7 +23,6 @@ BuildRequires:	cmake(qtermwidget5)
 BuildRequires:	cmake(Qt5LinguistTools)
 BuildRequires:	cmake(lxqt-build-tools)
 BuildRequires:	cmake(lxqt)
-BuildRequires:	git-core
 
 %description
 Qt based multitab terminal emulator.
