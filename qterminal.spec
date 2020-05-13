@@ -2,13 +2,13 @@
 
 Summary:	QT-based multitab terminal emulator
 Name:		qterminal
-Version:	0.14.1
+Version:	0.15.0
 %if %git
-Release:	1.%git.1
+Release:	0.%git.1
 Source0:	%{name}-%{git}.tar.xz
 %else
-Release:	2
-Source0:	https://github.com/lxde/qterminal/releases/download/%{version}/qterminal-%{version}.tar.xz
+Release:	1
+Source0:	https://github.com/lxqt/qterminal/releases/download/%{version}/qterminal-%{version}.tar.xz
 %endif
 License:	GPLv2
 Group:		Terminals
@@ -50,3 +50,5 @@ Qt based multitab terminal emulator.
 %{_datadir}/applications/%{name}_drop.desktop
 %{_datadir}/appdata/qterminal.appdata.xml
 %{_datadir}/icons/*/*/*/qterminal.*
+%lang(arn) %{_datadir}/qterminal/translations/qterminal_arn.qm
+%lang(ast) %{_datadir}/qterminal/translations/qterminal_ast.qm
