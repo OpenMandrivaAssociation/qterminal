@@ -1,15 +1,8 @@
-%define	git 0
-
 Summary:	QT-based multitab terminal emulator
 Name:		qterminal
-Version:	0.17.0
-%if %git
-Release:	1
-Source0:	%{name}-%{git}.tar.xz
-%else
-Release:	1
+Version:	1.0.0
+Release:	%{?snapshot:0.%{snapshot}.}1
 Source0:	https://github.com/lxqt/qterminal/releases/download/%{version}/qterminal-%{version}.tar.xz
-%endif
 License:	GPLv2
 Group:		Terminals
 Url:		https://github.com/lxde/qterminal
@@ -28,13 +21,7 @@ BuildRequires:	cmake(lxqt)
 Qt based multitab terminal emulator.
 
 %prep
-%if %git
-%setup -qn %{name}
-%else
-%setup -q
-%endif
-%autopatch -p1
-
+%autosetup -p1
 %cmake_qt5 -DPULL_TRANSLATIONS:BOOL=OFF -G Ninja
 
 %build
