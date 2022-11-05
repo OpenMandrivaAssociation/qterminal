@@ -12,6 +12,7 @@ BuildRequires:	qmake5
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5X11Extras)
+BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	cmake(qtermwidget5)
 BuildRequires:	cmake(Qt5LinguistTools)
 BuildRequires:	cmake(lxqt-build-tools)
