@@ -10,9 +10,11 @@ Group:		Terminals
 Url:		https://github.com/lxqt/qterminal
 BuildRequires:	cmake
 BuildRequires:	ninja
-BuildRequires:	pkgconfig(Qt6Gui)
-BuildRequires:	pkgconfig(Qt6Widgets)
-BuildRequires:	pkgconfig(Qt6Test)
+BuildRequires:	cmake(Qt6)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Gui)
+BuildRequires:	cmake(Qt6Widgets)
+BuildRequires:	cmake(Qt6Test)
 BuildRequires:	cmake(qtermwidget6)
 BuildRequires:	cmake(Qt6LinguistTools)
 BuildRequires:	cmake(lxqt2-build-tools)
