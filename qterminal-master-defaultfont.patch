@@ -1,0 +1,14 @@
+diff -up qterminal-master/src/config.h.omv~ qterminal-master/src/config.h
+--- qterminal-master/src/config.h.omv~	2024-05-02 00:09:41.203030271 +0200
++++ qterminal-master/src/config.h	2024-05-02 00:09:56.691178641 +0200
+@@ -75,7 +75,7 @@
+ // Qt does not support fontconfig on macOS, so we need to use a "real" font name.
+ #define DEFAULT_FONT                   "Menlo"
+ #else
+-#define DEFAULT_FONT                   "Monospace"
++#define DEFAULT_FONT                   "Liberation Mono"
+ #endif
+ 
+ // ACTIONS
+diff -up qterminal-master/src/mainwindow.cpp.omv~ qterminal-master/src/mainwindow.cpp
+diff -up qterminal-master/src/properties.cpp.omv~ qterminal-master/src/properties.cpp

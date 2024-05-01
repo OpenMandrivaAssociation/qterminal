@@ -1,10 +1,11 @@
-%define gitdate 20240419
+%define gitdate 20240501
 
 Summary:	QT-based multitab terminal emulator
 Name:		qterminal
 Version:	2.0.0
-Release:	%{?gitdate:0.%{gitdate}.}1
+Release:	%{?gitdate:0.%{gitdate}.}2
 Source0:	https://github.com/lxqt/qterminal/%{!?gitdate:releases/download/%{version}/qterminal-%{version}.tar.xz}%{?gitdate:archive/refs/heads/master.tar.gz#/%{name}-%{gitdate}.tar.gz}
+Patch0:		qterminal-master-defaultfont.patch
 License:	GPLv2
 Group:		Terminals
 Url:		https://github.com/lxqt/qterminal
@@ -26,6 +27,8 @@ Qt based multitab terminal emulator.
 
 %prep
 %autosetup -p1 -n %{name}-%{?gitdate:master}%{!?gitdate:%{version}}
+
+%conf
 %cmake -DPULL_TRANSLATIONS:BOOL=OFF -G Ninja
 
 %build
