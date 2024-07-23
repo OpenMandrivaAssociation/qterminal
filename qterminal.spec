@@ -1,4 +1,4 @@
-%define gitdate 20240501
+#define gitdate 20240501
 
 Summary:	QT-based multitab terminal emulator
 Name:		qterminal
