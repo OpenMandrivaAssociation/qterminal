@@ -21,6 +21,7 @@ BuildRequires:	cmake(qtermwidget6)
 BuildRequires:	cmake(Qt6LinguistTools)
 BuildRequires:	cmake(lxqt2-build-tools)
 BuildRequires:	cmake(lxqt)
+BuildRequires:	cmake(LayerShellQt)
 
 %description
 Qt based multitab terminal emulator.
